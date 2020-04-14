@@ -10,10 +10,33 @@ class Warframe
     const ENNEMIE_TUE = 2;
     const WARFRAME_ATTAQUE = 3;
 
+    public function __construct(array $donnees)
+    {
+        $this->hydrate($donnees);
+    }
+
     public function attaquer(Warframe $perso)
     {
+        if ($perso->pointDeVie() == $this->_pointDeVie)
+        {
+            return self::MA_WARFRAME;
+        }
         //on vérifie que l'on ne se tape pas soit même.
         //on indique au personne frappé qu'il doit recevoir des dégâts.
+        return $perso->recevoirDegats();
+    }
+
+    public function hydrate(array $donnees)
+    {
+        foreach ($donnees as $key => $value)
+        {
+            $method = 'set'.ucfirst($key);
+
+            if (method_exists($this, $method))
+            {
+                $this->$method($value);
+            }
+        }
     }
 
     public function recevoirDegats()
@@ -50,6 +73,14 @@ class Warframe
         if ($degats >= 0 && $degats <= 100)
         {
             $this->_degats = $degats
+        }
+    }
+
+    public function setNom($nom)
+    {
+        if (is_string($nom))
+        {
+            $this->_nom = $nom;
         }
     }
 }
