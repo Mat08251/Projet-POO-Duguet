@@ -1,5 +1,7 @@
 <?php 
 
+include ('connexion-bdd.php');
+
 class User
 {
     private $_pseudoUser;
