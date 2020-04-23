@@ -8,6 +8,7 @@
 <body>
 <?php 
    require_once('connexion-bdd.php');
+   require_once('class-user.php');
    $connexion = new Database('localhost', 'user', 'root', '');
    $bdd = $connexion->PDOConnexion();
 
