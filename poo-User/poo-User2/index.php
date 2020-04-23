@@ -6,28 +6,19 @@
    <title>Document</title>
 </head>
 <body>
-<?php 
-   require_once('connexion-bdd.php');
-   require_once('class-user.php');
-   $connexion = new Database('localhost', 'user', 'root', '');
-   $bdd = $connexion->PDOConnexion();
-
-
-   
-?>
 
 
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form" action="class-user.php" method="post">
+				<form class="login100-form" action="traitement-user.php" method="post">
 
 					<span class="login100-form-title p-b-48">
 						<img src="images/logo.jpg" alt="Logo Agence Automobile Ardennaise" height="100px" style="top:3px;">
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
+						<input class="input100" type="text" name="emailUser">
 						<span class="focus-input100" data-placeholder="Email"></span>
 					</div>
 
@@ -36,7 +27,7 @@
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="pass">
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<span class="focus-input100" data-placeholder="passwordUser"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
