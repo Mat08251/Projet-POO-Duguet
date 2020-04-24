@@ -93,5 +93,5 @@ if (isset($_SESSION['email']) AND isset($_SESSION['pass']))
 </html>
 <?php }
 else {
-	header("Location:../index.php");
+	header("Location:../vincent.php");
  } ?>

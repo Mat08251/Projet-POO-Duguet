@@ -30,6 +30,7 @@ class User
                     'email' => $this->_email,
                     'pass' => $this->_pass
         ));
+        
 
         $count = $req->rowCount();
     if($count > 0)
@@ -42,7 +43,7 @@ class User
     else
     {
      //Mauvais identifiant ou mauvais tout cours
-     header("location:index.php");
+     header("location:coucou.php");
     }
   }
 }
