@@ -3,36 +3,30 @@
 
 class User
 {
-    private $_pseudoUser;
-    private $_passwordUser;
-    private $_emailUser;
+    private $_pass;
+    private $_email;
    
-   public function __construct( $pseudoUser ) {
-       $this->_pseudoUser = $_pseudoUser;
-       $this->_passwordUser = $_passwordUser;
-       $this->_emailUser = $_emailUser;
+   public function __construct( $_email,  $_pass) {
+       $this->_email = $_email;
+       $this->_pass = $_pass;
    }
 
-   public function getpseudoUser(){
-    return $this->_pseudoUser;
+
+  public function getpass(){
+    return $this->_pass;
   }
 
-  public function getpasswordUser(){
-    return $this->_passwordUser;
-  }
-
-  public function getemailUser(){
-    return $this->_emailUser;
+  public function getemail(){
+    return $this->_email;
   }
 
 
   public function affiche(){
       // REQUETE PERMETTANT LA RECHERCHE DES UTILISATEURS
-        $req = $bdd->prepare("SELECT * FROM user WHERE pseudoUser = :pseudoUser AND emailUser = :emailUser AND passwordUser = :passwordUser");
+        $req = $bdd->prepare("SELECT * FROM user WHERE  email = :email AND pass = :pass");
         $req->execute(array(
-                    'pseudoUser' => $_POST["pseudoUser"],
-                    'emailUser' => $_POST["emailUser"],
-                    'passwordUser' => $_POST["passwordUser"]
+                    'email' => $_POST["email"],
+                    'pass' => $_POST["pass"]
         ));
   }
 }
